@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+	<name>Alertbar</name>
+	<author>William Deacon</author>
+	<creationDate>September 2, 2017</creationDate>
+	<authorEmail>wddeacon@gmail.com</authorEmail>
+	<version>0.0.1</version>
+	<description>A simple alert bar for displaying custom messages.</description>
+
+	<files>
+		<folder>tmpl</folder>
+		<filename module="mod_alertbar">mod_alertbar.php</filename>
+	</files>
+
+	<media folder="media" destination="mod_alertbar">
+		<folder>css</folder>
+	</media>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="options" label="Alertbar Options">
+				<field name="alerttype" type="list" default="" required="true" label="Alert Type" description="Type of alert you wish to feature">
+					<option value="">Please Select</option>
+					<option value="red">Danger [red]</option>
+					<option value="yellow">Warning [yellow]</option>
+					<option value="blue">Notification [blue]</option>
+					<option value="green">Success [green]</option>
+				</field>
+				<field name="alertmsg" type="textarea" default="Alertbar message text" label="Alert Message" description="Enter the message text you wish to display" rows="10" cols="5" />
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
